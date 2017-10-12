@@ -1,0 +1,13 @@
+#!/bin/bash -e
+#
+# S2I run script for the 'buildout-centos7' image.
+# The run script executes the server that runs your application.
+#
+# For more information see the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+if [ -f ./bin/pserve ]; then
+    exec ./bin/pserve production.ini
+else
+    exec ./bin/instance fg
+fi
