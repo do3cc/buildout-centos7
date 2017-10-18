@@ -37,7 +37,8 @@ LABEL summary="$SUMMARY" \
 RUN yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/wv-1.2.7-2.el6.x86_64.rpm
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="libjpeg-turbo libjpeg-turbo-devel \
-    openssl-devel libxslt-devel readline-devel \
+    openssl-devel libxslt-devel readline-devel libmemcached-devel \
+    unixODBC-devel postgresql-devel graphviz-devel \
     python27 python27-python-devel python27-python-setuptools \
 	python27-python-pip python-devel \
     nss_wrapper \

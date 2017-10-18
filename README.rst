@@ -56,3 +56,20 @@ This will run the *save-artifacts* script which includes the custom code to back
 
 If you must compile your own source code with the zc.recipe.cmmi script, use version >=2.0.0 and set shared to `true`.
 This way, the incremental build will not recompile your code.
+
+On included development libraries
+---------------------------------
+
+Every included development library will increase the footprint of the build
+docker images and might increase an attack surface. It will also install
+libraries you aren't actually using.
+Anyway, for the sake of having a Docker Image usable by most Plone setups, the
+policy for this repository is to add development libraries if this might make
+the images usable for more users.
+
+Some examples::
+
+    - libraries to support access to PostgreSQL, MongoDB, etc. ✅
+    - libraries to support accessing the blockchain ❌.
+
+This is no strict rule. If in doubt, open a Pull Request.
