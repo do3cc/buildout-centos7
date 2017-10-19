@@ -40,7 +40,7 @@ RUN yum install -y centos-release-scl && \
     openssl-devel libxslt-devel readline-devel libmemcached-devel \
     unixODBC-devel postgresql-devel graphviz-devel \
     python27 python27-python-devel python27-python-setuptools \
-	python27-python-pip python-devel \
+	python27-python-pip python-devel openldap-devel libdb-devel \
     nss_wrapper \
     gcc-c++ patch \
     make which \
