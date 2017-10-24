@@ -35,12 +35,15 @@ LABEL summary="$SUMMARY" \
       maintainer="Patrick Gerken <gerken@patrick-gerken.de>"
 
 RUN yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/wv-1.2.7-2.el6.x86_64.rpm
+RUN yum install -y epel-release
+RUN rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 RUN yum install -y centos-release-scl && \
     INSTALL_PKGS="libjpeg-turbo libjpeg-turbo-devel \
     openssl-devel libxslt-devel readline-devel libmemcached-devel \
     unixODBC-devel postgresql-devel graphviz-devel \
     python27 python27-python-devel python27-python-setuptools \
 	python27-python-pip python-devel openldap-devel libdb-devel \
+    freetds-devel \
     nss_wrapper \
     gcc-c++ patch \
     make which \
@@ -66,6 +69,11 @@ RUN source scl_source enable python27 && \
 # writable as OpenShift default security model is to run the container under
 # random UID.
 RUN chown -R 1001:0 /opt/app-root && chmod -R ug+rwx /opt/app-root
+
+# Ensure that odbc is configured to work with freetds
+COPY freetds /tmp/freetds
+
+RUN cat /tmp/freetds >> /etc/odbcinst.ini && rm /tmp/freetds
 
 USER 1001
 
