@@ -7,7 +7,7 @@
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 if [ -f ./bin/pserve ]; then
-    exec ./bin/pserve production.ini
+    exec ./bin/pserve app.ini
 else
     exec ./bin/instance fg
 fi

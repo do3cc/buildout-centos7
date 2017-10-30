@@ -11,7 +11,7 @@ project, it must satisfy a few constraints:
 - The build results either in:
 
   - a `bin/instance` script that accepts a parameter fg and runs in foreground
-  - a `bin/pserve` script and a `production.ini` file for it.
+  - a `bin/pserve` script and an `app.ini` file for it.
 
 - The logs should be dumped to stdout.
 
