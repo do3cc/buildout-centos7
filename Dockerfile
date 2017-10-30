@@ -34,7 +34,7 @@ LABEL summary="$SUMMARY" \
       release="1" \
       maintainer="Patrick Gerken <gerken@patrick-gerken.de>"
 
-RUN yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/wv-1.2.7-2.el6.x86_64.rpm
+RUN yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/Packages/w/wv-1.2.7-2.el6.x86_64.rpm
 RUN yum install -y epel-release
 RUN rpm --import http://download.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 RUN yum install -y centos-release-scl && \
